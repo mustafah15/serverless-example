@@ -1,5 +1,4 @@
-service:
-  name: auction-service
+service: auction-service
 
 plugins:
   - serverless-bundle
@@ -21,18 +20,26 @@ resources:
     AuctionsTable: ${file(resources/AuctionsTable.yml):AuctionsTable}
   
 functions:
-  createAuction:
+  createNewAuction:
     handler: src/handlers/createAuction.handler
     events:
       - http:
           method: POST
-          path: /auction
-  getAuctions:
+          path: /auctions
+
+  getAllAuctions:
     handler: src/handlers/getAuctions.handler
     events:
-        - http:
+      - http:
           method: GET
-          path: /auction
+          path: /auctions
+
+  getOneAuction:
+    handler: src/handlers/getAuction.handler
+    events:
+      - http:
+          method: GET
+          path: /auctions/{id}
 
 custom:
   AuctionsTable:
