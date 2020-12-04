@@ -13,7 +13,6 @@ async function processAuctions(event, context) {
         console.error(error);
         throw new createHttpError.InternalServerError(error);
     }
-
 }
 
 export const handler = processAuctions;
