@@ -6,8 +6,8 @@ import cors from '@middy/http-cors';
 
 export default handler => middy(handler)
     .use([
+        cors(),
         httpJsonBodyParser(),
         httpErrorHandler(),
         httpEventNormalizer(),
-        cors(),
     ]);
