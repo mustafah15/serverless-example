@@ -5,7 +5,6 @@ async function sendMail(event, context) {
   const record = event.Records[0];
 
   const email = JSON.parse(record.body);
-  
   console.log('processing email', email);
 
   const { subject, body, recipient } = email;
